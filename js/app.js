@@ -1,9 +1,11 @@
+"use strict";
+
 $(function(){
 
   //append clicked innerText to screen
   $('span').on('click', function(){
     var screenText = $(this).text();
-    console.log(screenText);
+    // console.log(screenText);
     $('#screen').append(screenText);
   });
 
@@ -19,22 +21,21 @@ $(function(){
 
     // catch errors
       try{
-        var newCalc = eval(filteredStr);
+        var result = eval(filteredStr);
       }
       catch(err)  {
-        $('#screen').append('Error')
+        $('#screen').append('Error');
       }
 
-      if(newCalc==Infinity){
-        $('#screen').append('Error')
+      if(result===Infinity){
+        $('#screen').append('Error');
       }else{
-        // console.log(newCalc);
-        $('#screen').append(newCalc)
+        $('#screen').append(result);
       }
 
-  })
+  });
 
-//clear button
+  //clear button
   $('#clear').on('click', function(){
     $('#screen').empty();
   });
